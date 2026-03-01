@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch30rfnryxcfs"]
+
+[ext_resource type="Script" uid="uid://bylpyy5ts4k7k" path="res://Scripts/InverseKinematics.gd" id="1_amcaj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kv5x3"]
+
+[sub_resource type="Gradient" id="Gradient_amcaj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vjv5r"]
+gradient = SubResource("Gradient_amcaj")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("joints")]
+script = ExtResource("1_amcaj")
+joints = [NodePath("Joint1"), NodePath("Joint1/Joint2"), NodePath("Joint1/Joint2/Joint3"), NodePath("Joint1/Joint2/Joint3/Joint4")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -505.0
+offset_top = -528.0
+offset_right = -125.611755
+offset_bottom = -330.0
+text = "##Inverse Kinematics FABRIK Tutorial Scene##
+
+This time you will want to move the target object (Red Sphere) around the screen by using the Move tool (to the left of the Rotate tool).
+
+Edit the InverseKinematics.gd script within the Scripts folder! Good luck :)"
+
+[node name="Target" type="MeshInstance2D" parent="."]
+position = Vector2(1, -603)
+scale = Vector2(52.030197, 49.505)
+mesh = SubResource("SphereMesh_kv5x3")
+texture = SubResource("GradientTexture1D_vjv5r")
+
+[node name="Joint1" type="MeshInstance2D" parent="."]
+scale = Vector2(50, 49.505)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint2" type="MeshInstance2D" parent="Joint1"]
+position = Vector2(0.0049258634, -2.9999955)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint3" type="MeshInstance2D" parent="Joint1/Joint2"]
+position = Vector2(0.004877093, -2.9999967)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint4" type="MeshInstance2D" parent="Joint1/Joint2/Joint3"]
+position = Vector2(0.0048288032, -2.9999952)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
