@@ -12,10 +12,12 @@ joints = [NodePath("Joint1"), NodePath("Joint1/Joint2"), NodePath("Joint1/Joint2
 offset_left = -442.0
 offset_top = -528.0
 offset_right = -125.611755
-offset_bottom = -385.0
+offset_bottom = -330.0
 text = "##Forward Kinematics Tutorial Scene##
 
-Here you will be able to move around these spheres using the Rotate tool when selecting them here in the Editor."
+Here you will be able to move around these spheres using the Rotate tool when selecting them here in the Editor.
+
+Edit the ForwardKinematics.gd script within the Scripts folder! Good luck :)"
 
 [node name="Joint1" type="MeshInstance2D" parent="."]
 scale = Vector2(50, 49.505)
