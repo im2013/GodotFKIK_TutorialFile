@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://7dm6iehu7qwv"]
+
+[ext_resource type="Script" uid="uid://c02feuwa3vaf6" path="res://Scripts/ForwardKinematics.gd" id="1_nm8wv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kv5x3"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("joints")]
+script = ExtResource("1_nm8wv")
+joints = [NodePath("Joint1"), NodePath("Joint1/Joint2"), NodePath("Joint1/Joint2/Joint3"), NodePath("Joint1/Joint2/Joint3/Joint4")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -442.0
+offset_top = -528.0
+offset_right = -125.611755
+offset_bottom = -385.0
+text = "##Forward Kinematics Tutorial Scene##
+
+Here you will be able to move around these spheres using the Rotate tool when selecting them here in the Editor."
+
+[node name="Joint1" type="MeshInstance2D" parent="."]
+scale = Vector2(50, 49.505)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint2" type="MeshInstance2D" parent="Joint1"]
+position = Vector2(0, -3)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint3" type="MeshInstance2D" parent="Joint1/Joint2"]
+position = Vector2(0, -3)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
+
+[node name="Joint4" type="MeshInstance2D" parent="Joint1/Joint2/Joint3"]
+position = Vector2(0, -3)
+scale = Vector2(1.01, 1)
+mesh = SubResource("SphereMesh_kv5x3")
